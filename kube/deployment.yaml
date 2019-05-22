@@ -1,0 +1,31 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: mock-cp-court-service
+  labels:
+    app: mock-cp-court-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mock-cp-court-service-app
+  template:
+    metadata:
+      labels:
+        app: mock-cp-court-service-app
+    spec:
+      containers:
+        - name: mock-cp-court-service
+          image: 926803513772.dkr.ecr.eu-west-1.amazonaws.com/probation-services/mock-cp-court-service:1.1
+          resources:
+            limits:
+              memory: "512Mi"
+              cpu: "1000m"
+            requests:
+              memory: "256Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 8000
+          env:
+            - name: SERVER_PORT
+              value: '8000'
