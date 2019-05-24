@@ -1,6 +1,8 @@
 
 package uk.gov.justice.digital.court.crimeportal.data.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.xml.bind.annotation.*;
 
 
@@ -101,6 +103,7 @@ public class DocumentType {
      *     {@link String }
      *     
      */
+    @JsonProperty("end_time")
     public String getEndTime() {
         return endTime;
     }

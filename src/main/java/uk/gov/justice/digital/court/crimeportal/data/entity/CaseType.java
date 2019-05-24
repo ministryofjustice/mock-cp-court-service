@@ -1,6 +1,8 @@
 
 package uk.gov.justice.digital.court.crimeportal.data.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -219,6 +221,7 @@ public class CaseType {
      *     {@link String }
      *     
      */
+    @JsonProperty("c_id")
     public String getCId() {
         return cId;
     }
@@ -243,6 +246,7 @@ public class CaseType {
      *     {@link String }
      *     
      */
+    @JsonProperty("h_id")
     public String getHId() {
         return hId;
     }
@@ -363,6 +367,7 @@ public class CaseType {
      *     {@link String }
      *     
      */
+    @JsonProperty("def_name")
     public String getDefName() {
         return defName;
     }
@@ -387,6 +392,7 @@ public class CaseType {
      *     {@link String }
      *     
      */
+    @JsonProperty("def_type")
     public String getDefType() {
         return defType;
     }
@@ -411,6 +417,7 @@ public class CaseType {
      *     {@link String }
      *     
      */
+    @JsonProperty("def_sex")
     public String getDefSex() {
         return defSex;
     }
@@ -435,6 +442,7 @@ public class CaseType {
      *     {@link String }
      *     
      */
+    @JsonProperty("def_dob")
     public String getDefDob() {
         return defDob;
     }
@@ -459,6 +467,7 @@ public class CaseType {
      *     {@link String }
      *     
      */
+    @JsonProperty("def_age")
     public String getDefAge() {
         return defAge;
     }
@@ -483,6 +492,7 @@ public class CaseType {
      *     {@link DefAddrType }
      *     
      */
+    @JsonProperty("def_addr")
     public DefAddrType getDefAddr() {
         return defAddr;
     }
@@ -507,6 +517,7 @@ public class CaseType {
      *     {@link String }
      *     
      */
+    @JsonProperty("nationality_1")
     public String getNationality1() {
         return nationality1;
     }
@@ -531,6 +542,7 @@ public class CaseType {
      *     {@link String }
      *     
      */
+    @JsonProperty("nationality_2")
     public String getNationality2() {
         return nationality2;
     }
@@ -627,6 +639,7 @@ public class CaseType {
      *     {@link String }
      *     
      */
+    @JsonProperty("pg_type")
     public String getPgType() {
         return pgType;
     }
@@ -651,6 +664,7 @@ public class CaseType {
      *     {@link String }
      *     
      */
+    @JsonProperty("pg_name")
     public String getPgName() {
         return pgName;
     }
@@ -675,6 +689,7 @@ public class CaseType {
      *     {@link PgAddrType }
      *     
      */
+    @JsonProperty("pg_addr")
     public PgAddrType getPgAddr() {
         return pgAddr;
     }

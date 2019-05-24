@@ -1,6 +1,8 @@
 
 package uk.gov.justice.digital.court.crimeportal.data.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -71,6 +73,7 @@ public class GeneralType {
      *     {@link String }
      *     
      */
+    @JsonProperty("alerts_address")
     public String getAlertsAddress() {
         return alertsAddress;
     }
@@ -95,6 +98,7 @@ public class GeneralType {
      *     {@link String }
      *     
      */
+    @JsonProperty("erm_flag")
     public String getErmFlag() {
         return ermFlag;
     }
@@ -119,6 +123,7 @@ public class GeneralType {
      *     {@link String }
      *     
      */
+    @JsonProperty("doc_type")
     public String getDocType() {
         return docType;
     }
@@ -251,6 +256,7 @@ public class GeneralType {
      *     {@link String }
      *     
      */
+    @JsonProperty("preview_text")
     public void setPreviewText(String value) {
         this.previewText = value;
     }

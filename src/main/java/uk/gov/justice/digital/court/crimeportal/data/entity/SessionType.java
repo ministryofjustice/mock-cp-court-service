@@ -1,6 +1,9 @@
 
 package uk.gov.justice.digital.court.crimeportal.data.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -79,6 +82,7 @@ public class SessionType {
      *     {@link String }
      *     
      */
+    @JsonProperty("s_id")
     public String getSId() {
         return sId;
     }

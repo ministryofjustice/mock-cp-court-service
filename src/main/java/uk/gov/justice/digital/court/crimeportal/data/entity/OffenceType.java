@@ -1,6 +1,8 @@
 
 package uk.gov.justice.digital.court.crimeportal.data.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -123,6 +125,7 @@ public class OffenceType {
      *     {@link String }
      *     
      */
+    @JsonProperty("co_id")
     public String getCoId() {
         return coId;
     }
