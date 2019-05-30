@@ -83,7 +83,8 @@ import javax.xml.bind.annotation.XmlType;
     "dq1",
     "offences",
     "bailcond",
-    "addinfo"
+    "addinfo",
+    "solname"
 })
 public class CaseType {
 
@@ -143,6 +144,9 @@ public class CaseType {
     protected String bailcond;
     @XmlElement(required = true)
     protected String addinfo;
+    @XmlElement(required = true)
+    protected String solname;
+
 
     public String getAddinfo() {
         return addinfo;
@@ -151,6 +155,16 @@ public class CaseType {
     public void setAddinfo(String addinfo) {
         this.addinfo = addinfo;
     }
+
+
+    public String getSolname() {
+        return solname;
+    }
+
+    public void setSolname(String solname) {
+        this.solname = solname;
+    }
+
 
 
     /**
