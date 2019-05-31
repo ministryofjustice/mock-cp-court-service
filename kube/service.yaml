@@ -1,7 +1,7 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: mock-cp-court-service-service
+  name: mock-cp-court-service
 spec:
   selector:
     app: mock-cp-court-service-app

@@ -1,18 +1,18 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: mock-cp-court-service-service
+  name: mock-cp-court-service
   annotations:
     kubernetes.io/ingress.class: "nginx"
 spec:
   tls:
     - hosts:
-      - mock-cp-court-service.apps.cloud-platform-live-0.k8s.integration.dsd.io
+      - mock-cp-court-service.apps.live-1.cloud-platform.service.justice.gov.uk
   rules:
-    - host: mock-cp-court-service.apps.cloud-platform-live-0.k8s.integration.dsd.io
+    - host: mock-cp-court-service.apps.live-1.cloud-platform.service.justice.gov.uk
       http:
         paths:
           - path: /
             backend:
-              serviceName: mock-cp-court-service-service
+              serviceName: mock-cp-court-service
               servicePort: 8000
