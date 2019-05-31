@@ -1,7 +1,7 @@
 FROM java
 
-ENV USER probation
-ENV GROUP probation
+ENV USER 2000
+ENV GROUP 2000
 
 WORKDIR /app
 
