@@ -7,7 +7,8 @@ apply plugin: 'io.spring.dependency-management'
 
 group = 'uk.gov.justice.digital.court'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '1.8'
+project.sourceCompatibility = 11
+project.targetCompatibility = 11
 
 configurations {
     compileOnly {
@@ -22,6 +23,13 @@ repositories {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.springframework.security.oauth:spring-security-oauth2:2.3.6.RELEASE'
+    implementation 'org.springframework.security:spring-security-jwt:1.0.10.RELEASE'
+    implementation 'io.jsonwebtoken:jjwt:0.9.1'
+    implementation group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.1'
+    implementation group: 'com.sun.xml.bind', name: 'jaxb-impl', version: '2.3.0.1'
+    compile 'org.glassfish.jaxb:jaxb-runtime:2.3.0'
     compile 'de.flapdoodle.embed:de.flapdoodle.embed.mongo'
     compileOnly 'org.projectlombok:lombok'
     runtimeOnly 'org.springframework.boot:spring-boot-devtools'
