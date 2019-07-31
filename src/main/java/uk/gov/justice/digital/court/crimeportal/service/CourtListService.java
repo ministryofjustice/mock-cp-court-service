@@ -81,6 +81,22 @@ public class CourtListService {
         sessionRepository.deleteAll();
     }
 
+    public CourtList save(String court, LocalDate date, DocumentType document) {
+        val sessions = document.getData().getJob().getSessions().getSession();
+        sessions.forEach(session -> {
+            log.info(String.format("Writing session %s %s", session.getSId(), session.getDoh()));
+            sessionRepository.save(session);
+        });
+
+        return CourtList
+                .builder()
+                .courtName(court)
+                .date(date)
+                .sessions(document.getData().getJob().getSessions())
+                .build();
+    }
+
+
     private DocumentType readDataAsXML(InputStream inputStream) throws JAXBException {
         JAXBContext jaxbContext = JAXBContext.newInstance(DocumentType.class);
 

@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import uk.gov.justice.digital.court.crimeportal.data.api.CourtList;
 import uk.gov.justice.digital.court.crimeportal.data.api.CourtListSummary;
+import uk.gov.justice.digital.court.crimeportal.data.entity.DocumentType;
 import uk.gov.justice.digital.court.crimeportal.service.CourtListService;
+import uk.gov.justice.digital.court.crimeportal.service.DataGenerator;
 
 import javax.xml.bind.JAXBException;
 import java.io.IOException;
@@ -19,9 +21,11 @@ import java.time.LocalDate;
 @Slf4j
 public class CourtListController {
     private final CourtListService courtListService;
+    private final DataGenerator dataGenerator;
 
-    public CourtListController(CourtListService courtListService) {
+    public CourtListController(CourtListService courtListService, DataGenerator dataGenerator) {
         this.courtListService = courtListService;
+        this.dataGenerator = dataGenerator;
     }
 
     @RequestMapping(value="/court/{court}/list", produces=MediaType.APPLICATION_XML_VALUE)
@@ -30,7 +34,20 @@ public class CourtListController {
             @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) @RequestParam("date") LocalDate date) {
 
         log.info("Court list requested for court {} for date {}", court, date);
-        return courtListService.courtList(court, date);
+        var savedCourtList = courtListService.courtList(court, date);
+        if (savedCourtList.getSessions().getSession().isEmpty()) {
+            return courtListService.save(court, date,  dataGenerator.generateOf(court, date));
+        }
+        return savedCourtList;
+    }
+
+    @PostMapping(value="/court/{court}/list", produces=MediaType.APPLICATION_XML_VALUE)
+    public DocumentType createCourtList(
+            @PathVariable String court,
+            @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) @RequestParam("date") LocalDate date) {
+
+        log.info("Court list is being created for court {} for date {}", court, date);
+        return dataGenerator.generateOf(court, date);
     }
 
     @RequestMapping(value="/court/list", produces=MediaType.APPLICATION_XML_VALUE)

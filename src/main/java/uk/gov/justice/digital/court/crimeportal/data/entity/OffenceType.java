@@ -93,6 +93,9 @@ public class OffenceType {
     @XmlElement(required = true)
     protected String adjreason;
 
+    private boolean company;
+    private boolean council;
+
     /**
      * Gets the value of the oseq property.
      * 
@@ -454,4 +457,19 @@ public class OffenceType {
         this.adjreason = value;
     }
 
+    public boolean isCompany() {
+        return company;
+    }
+
+    public void setCompany(boolean company) {
+        this.company = company;
+    }
+
+    public boolean isCouncil() {
+        return council;
+    }
+
+    public void setCouncil(boolean council) {
+        this.council = council;
+    }
 }
